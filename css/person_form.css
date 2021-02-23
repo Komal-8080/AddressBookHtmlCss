@@ -70,13 +70,13 @@ body {
     background-color: #0c7ba7;
 }
 
-.form-group{
+.name-group{
     padding:10px;
     border:2px solid #0c7ba7;
     margin: 50px;
   }
 
-.form-group>label{
+.name-group>label{
     padding-left: 5px;
     padding-right: 5px;
     position:relative;
@@ -85,7 +85,28 @@ body {
     background-color:white;
 }
   
-.form-group>input{
+.name-group>input{
+    width: 100%;
+    border:none;
+    font-size: bold 16px;
+}
+
+.address{
+    padding:20px;
+    border:2px solid #02090c;
+    margin: 50px;
+  }
+
+.address>label{
+    padding-left: 5px;
+    padding-right: 5px;
+    position:relative;
+    top:-20px;
+    left:20px;
+    background-color:white;
+}
+  
+.address>input{
     width: 100%;
     border:none;
     font-size: bold 16px;
