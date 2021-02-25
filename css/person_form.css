@@ -70,3 +70,52 @@ body {
     margin-left: 400px;
     margin-right: 50px;
 }
+
+.row-content {
+    display:flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    align-items: center;
+    border: 0px solid green;
+}
+
+.label {
+    min-width: 140px;
+}
+
+.label {
+    padding: 12px 12px 12px 0;    
+    display: inline-block;
+}
+
+.text {
+    margin-left: 75px;
+    font-size: 16px;
+    color: #42515f;
+    opacity: 1;
+    font-family: Roboto;
+}
+
+.input {
+    margin-top: 15px;
+    margin-left: 20px;
+    width: 70%;
+    padding:12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize:vertical;
+}
+
+select {
+    padding: 10px;
+    padding-left: 20px;
+    border:1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font:normal normal normal 16px Roboto;
+    letter-spacing:0px;
+    color:#42515f;
+    background-color: transparent;
+    margin: 20px;
+}
+

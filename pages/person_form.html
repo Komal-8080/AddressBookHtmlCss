@@ -24,7 +24,53 @@
                     <div class="back">                
                     <a href="./personHome.html"><img src="../assets/images/cancel.png"></a>
                     </div>
-                </div> 
+                </div>
+                
+                <div class="row-content">
+                    <label class="label text" for="name">Full Name</label>
+                    <input class="input" type="text" id="name" name="name" placeholder="Your name.." required >
+                </div>
+
+                <div class="row-content">
+                    <label class="label text" for="phone">Phone Number</label>
+                    <input class="input" type="text" id="phone" name="Phone" required >
+                </div>
+
+                <div class="row-content">
+                    <label class="label text" for="address">Address</label>
+                    <textarea class="input" id="address" name="address" placeholder="" style="height:100px"></textarea>
+                </div>
+
+                <div class="row-content">
+                    <div id="city">                        
+                    <label class="text" for="city">City: </label>
+                        <select id="city" name="city" placeholder="Select City">
+                            <option value="Amaravati">Amaravati</option>
+                            <option value="Itanagar">Itanagar</option>
+                            <option value="Dispur">Dispur</option>
+                            <option value="Patna">Patna</option>
+                            <option value="Raipur">Raipur</option>
+                            <option value="Panaji">Panaji</option>
+                            <option value="GhandhiNagar">GhandhiNagar</option>
+                        </select>
+                    </div>
+                    <div id="state">                        
+                        <label class="text" for="state">State: </label>
+                            <select id="state" name="state" placeholder="Select State">
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                            </select>
+                    </div>
+                    <div class="row-content">
+                        <label class="text" for="zip">ZipCode: </label>
+                        <input class="input" type="text" id="zip" name="zip">
+                    </div>
+                </div>    
             </form>
         </div>
     </body>
