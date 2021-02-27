@@ -69,7 +69,6 @@ function createPerson() {
     person.city =getInputValueById('#city');
     person.state =getInputValueById('#state');
     person.zip =getInputValueById('#zip');
-    console.log(person);
     alert(person.toString());
     return person;
 }
@@ -78,5 +77,18 @@ function createPerson() {
     let value = document.querySelector(id).value;
     return value;
 }
-    
+  
+const resetForm = () => {
+    setValue("#name", ' ');
+    setValue("#phone", ' ');
+    setValue("#address", ' ');
+    setValue("#city", 'Amaravati');
+    setValue("#state", 'Andhra Pradesh');
+    setValue("#zip", ' ');
+}
+
+const setValue = (id, value ) => {
+    const element = document.querySelector(id);
+    element.value = value;
+} 
 
