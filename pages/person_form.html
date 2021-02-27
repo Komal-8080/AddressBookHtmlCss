@@ -6,6 +6,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../css/person_form.css">    
         <title>Address Book form</title>
+        <script defer src="../js/personData.js"></script>
+        <script defer src="../js/EventListeners.js"></script>
     </head>
     <body>
         <header class="header-content header">
@@ -29,11 +31,13 @@
                 <div class="row-content">
                     <label class="label text" for="name">Full Name</label>
                     <input class="input" type="text" id="name" name="name" placeholder="Your name.." required >
+                    <error-output class="name-error" for="text"></error-output>
                 </div>
 
                 <div class="row-content">
                     <label class="label text" for="phone">Phone Number</label>
-                    <input class="input" type="text" id="phone" name="Phone" required >
+                    <input class="input" type="text" id="phone" name="phone" required >
+                    <error-output class="phone-error" for="text"></error-output>
                 </div>
 
                 <div class="row-content">
