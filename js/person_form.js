@@ -41,12 +41,12 @@ function save() {
 
 function createAndUpdatePerson(person) {
     let personList = JSON.parse(localStorage.getItem("PersonList"));
+    
     if(personList != undefined) {
         personList.push(person);
     }else {
         personList = [person]
     }
-    console.log(personList)
     alert(personList.toString());
     localStorage.setItem("PersonList",JSON.stringify(personList))
 }
@@ -69,6 +69,10 @@ function createPerson() {
     person.city =getInputValueById('#city');
     person.state =getInputValueById('#state');
     person.zip =getInputValueById('#zip');
+    let personList1 = JSON.parse(localStorage.getItem("PersonList"));
+        if(personList1 == undefined)
+            person.id = 1;
+        else person.id = personList1.length+1;
     alert(person.toString());
     return person;
 }
