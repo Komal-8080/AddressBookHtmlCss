@@ -23,8 +23,8 @@ function createInnerHtml() {
                     <td>${personData._zip}</td>
                     <td>${personData._phone}</td>
                     <td>
-                        <img name="${personData._id}" onclick="remove(this)" src="../assets/icons/delete-black-18dp.svg" alt="delete" >
-                        <img name="${personData._id}" onclick="update(this)" src="../assets/icons/create-black-18dp.svg"  alt="edit">
+                        <img id="${personData._id}" onclick="remove(this)" src="../assets/icons/delete-black-18dp.svg" alt="delete" >
+                        <img id="${personData._id}" onclick="update(this)" src="../assets/icons/create-black-18dp.svg"  alt="edit">
                     </td>
                 </tr> 
             `;
@@ -32,4 +32,13 @@ function createInnerHtml() {
     document.querySelector('#table-display').innerHTML = innerHtml;
 }
 
-                    
+function remove(node) {
+    var personData = personDataList.find(pData => pData._id == node.id);
+    if(!personData) return;
+    const index = personDataList
+                 .map(pData => pData._id)
+                 .indexOf(personData._id);
+    personDataList.splice(index, 1);
+    localStorage.setItem("PersonList", JSON.stringify(personDataList));
+    createInnerHtml();
+}                    

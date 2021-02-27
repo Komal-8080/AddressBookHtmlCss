@@ -41,7 +41,6 @@ function save() {
 
 function createAndUpdatePerson(person) {
     let personList = JSON.parse(localStorage.getItem("PersonList"));
-    
     if(personList != undefined) {
         personList.push(person);
     }else {
