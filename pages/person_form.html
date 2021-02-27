@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../css/person_form.css">    
         <title>Address Book form</title>
         <script defer src="../js/personData.js"></script>
-        <script defer src="../js/EventListeners.js"></script>
+        <script defer src="../js/person_form.js"></script>
     </head>
     <body>
         <header class="header-content header">
@@ -19,8 +19,8 @@
                 </div>
             </div>
         </header> 
-        <div class="form-content">
-            <form class="form">
+        <div id="formId" class="form-content">
+            <form class="form" action="#" onsubmit="save()">
                 <div class="form-head">
                     <p>Person Address Form</p>
                     <div class="back">                
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="row-content">
-                    <div id="city">                        
+                    <div>                        
                     <label class="text" for="city">City: </label>
                         <select id="city" name="city" placeholder="Select City">
                             <option value="Amaravati">Amaravati</option>
@@ -58,7 +58,7 @@
                             <option value="GhandhiNagar">GhandhiNagar</option>
                         </select>
                     </div>
-                    <div id="state">                        
+                    <div>                        
                         <label class="text" for="state">State: </label>
                             <select id="state" name="state" placeholder="Select State">
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -76,8 +76,8 @@
                     </div>
                 </div>
                 <div class="button-content">
-                    <div class="add-reset">
-                        <button type="add" class="button addButton " id="addButton">ADD</button>
+                    <div class="submit-reset">
+                        <button type="submit" class="button addButton " id="addButton">ADD</button>
                         <button type="reset" class="button resetButton">Reset</button>
                     </div>
                 </div>    
