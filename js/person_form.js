@@ -1,3 +1,6 @@
+var isUpdate = false;
+var personObj = {};
+
 window.addEventListener('DOMContentLoaded', (event) => {
     const name=document.querySelector('#name');
     const nameError=document.querySelector('.name-error');
@@ -28,6 +31,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             phoneError.textContent=e;
         }
     });
+    checkForUpdate();
  });
 
 function save() {
@@ -81,6 +85,15 @@ function createPerson() {
     return value;
 }
   
+const setForm = () => {
+    setValue('#name', personObj._name);
+    setValue('#phone',personObj._phone);
+    setValue('#address',personObj._address);
+    setValue('#city', personObj._city);
+    setValue('#state',personObj._state);
+    setValue('#zip',personObj._zip);
+}
+
 const resetForm = () => {
     setValue("#name", ' ');
     setValue("#phone", ' ');
@@ -95,3 +108,10 @@ const setValue = (id, value ) => {
     element.value = value;
 } 
 
+const checkForUpdate = () => {
+    const personJson = localStorage.getItem('editPerson');
+    isUpdate = personJson ? true : false;
+    if (!isUpdate) return;
+    personObj = JSON.parse(personJson);
+    setForm();
+}

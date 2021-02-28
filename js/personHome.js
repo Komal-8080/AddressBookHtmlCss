@@ -41,4 +41,11 @@ function remove(node) {
     personDataList.splice(index, 1);
     localStorage.setItem("PersonList", JSON.stringify(personDataList));
     createInnerHtml();
-}                    
+}  
+
+function update(node) {
+    var personData = personDataList.find(pData => pData._id == node.id);
+    if(!personData) return;
+    localStorage.setItem('editPerson', JSON.stringify(personData))
+    window.location.replace(site_properties.add_person_form_page);
+} 
