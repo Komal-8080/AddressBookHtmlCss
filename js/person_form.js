@@ -34,53 +34,87 @@ window.addEventListener('DOMContentLoaded', (event) => {
     checkForUpdate();
  });
 
-function save() {
+function save(event) {
+    event.preventDefault();
+    event.stopPropagation();
     try {
-        let person = createPerson();
-        createAndUpdatePerson(person);
+        setPersonObject();
+        createAndUpdatePerson();
+        resetForm();
+        window.location.replace(site_properties.home_page);
     }catch(e){
         return;
     }
 }
 
-function createAndUpdatePerson(person) {
+function setPersonObject() {
+    personObj._name=getInputValueById('#name');
+    personObj._phone=getInputValueById('#phone');
+    personObj._address=getInputValueById('#address');
+    personObj._city =getInputValueById('#city');
+    personObj._state =getInputValueById('#state');
+    personObj._zip =getInputValueById('#zip');
+}
+
+function createAndUpdatePerson() {
     let personList = JSON.parse(localStorage.getItem("PersonList"));
-    if(personList != undefined) {
-        personList.push(person);
+    if (personList) {
+        let personData = personList.
+                                find(pData => pData._id == personObj._id);
+        if(!personData){
+            personList.push(createPersonData());
+        }else {
+            const index = personList
+                            .map(pData => pData._id)
+                            .indexOf(personData._id);
+                personList.splice(index, 1, createPersonData(personData._id));
+        }
     }else {
         personList = [person]
+        personList = [createPersonData()]
     }
     alert(personList.toString());
     localStorage.setItem("PersonList",JSON.stringify(personList))
 }
 
-function createPerson() {
+function createPersonData(id) {
     let person = new Person();
+    if(!id)
+        person.id = createNewPersonId();
+    else
+        person.id = id; 
+    setPersonData(person);
+    return person;
+}
+
+function setPersonData(person) {
     try {
-        person.name = getInputValueById('#name');
+        person.name = personObj._name;
     } catch (e) {
         setTextValue('.name-error', e);
         throw e;
     }
     try {
-        person.phone = getInputValueById('#phone');
+        person.phone = personObj._phone;
     } catch (e) {
         setTextValue('.phone-error', e);
         throw e;
     }
-    person.address = getInputValueById('#address');
-    person.city =getInputValueById('#city');
-    person.state =getInputValueById('#state');
-    person.zip =getInputValueById('#zip');
-    let personList1 = JSON.parse(localStorage.getItem("PersonList"));
-        if(personList1 == undefined)
-            person.id = 1;
-        else person.id = personList1.length+1;
+    person.address = personObj._address;
+    person.city = personObj._city;
+    person.state = personObj._state;
+    person.zip = personObj._zip;
     alert(person.toString());
-    return person;
 }
 
- const getInputValueById = (id) => {
+function createNewPersonId() {
+    let pID = localStorage.getItem("PersonID");
+    pID = !pID ? 1 : (parseInt(pID)+1).toString();
+    localStorage.setItem("PersonID", pID);
+    return pID;
+}
+
+const getInputValueById = (id) => {
     let value = document.querySelector(id).value;
     return value;
 }
